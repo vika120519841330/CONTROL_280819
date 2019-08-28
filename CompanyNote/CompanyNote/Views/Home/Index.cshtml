@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<br />
+<br />
+<table class="table" border="0" align="center">
+    <tr>
+        <form>
+            <button class="knopka_1" type="button">
+                <p>
+                    @Html.ActionLink("КОМПАНИИ", "AllCompanies", "Companies")
+                </p>
+            </button>
+        </form> 
+    </tr>
+    <tr>
+        <form>
+            <button class="knopka_2" type="button">
+                <p>
+                    @Html.ActionLink("ЗАПИСЬ НА ПРИЕМ", "Create", "Notes")
+                </p>
+            </button>
+        </form>
+    </tr>
+</table>
+    
