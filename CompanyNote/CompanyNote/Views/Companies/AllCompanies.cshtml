@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<CompanyNote.Models.Company>
-
 @{
     Layout = null;
 }
@@ -25,7 +24,8 @@
             </th>
         </tr>
     
-    @foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
     <tr>
         <td>
             @(++ViewBag.Num)
@@ -43,13 +43,7 @@
             @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
         </td>
         <td>
-            <form>
-                <button class="knopka_2" type="button">
-                    <p>
-                        @Html.ActionLink("ЗАПИСЬ НА ПРИЕМ", "Create", "Notes", FormMethod.Get, new { id = item.Id })
-                    </p>
-                </button>
-            </form> 
+            @Html.ActionLink("ЗАПИСЬ НА ПРИЕМ", "GetCompanyById", new { id = item.Id })
         </td>
     </tr>
     }

@@ -37,8 +37,16 @@ namespace CompanyNote.Controllers
             return View(company);
         }
 
-        // GET: Companies/Create
-        [HttpGet]
+        // GET: Companies/GetCompanyById/5
+        public ActionResult GetCompanyById(int? id)
+        {
+            Company comp = db.Companies.Find(id);
+            Note note = new Note { CompanyId = comp };
+            return View ("~/Views/Notes/CreateByIdOfCompany.cshtml", note);
+        }
+
+       
+       [HttpGet]
         public ActionResult Create()
         {
             return View();

@@ -42,10 +42,18 @@ namespace CompanyNote.Controllers
             return View();
         }
 
+        //[HttpPost]
+        //[Route("Notes/CreateByIdOfCompany")]
+        //public ActionResult CreateByIdOfCompany (Company company)
+        //{
+        //    Note note = new Note { CompanyId = company };
+        //    return View("CreateByIdOfCompany", "Notes", note);
+        //}
+
         // POST: Notes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Email,HumanName,DateOfMeet,Сomment")] Note note)
+        public ActionResult Create([Bind(Include = "Id,Email,HumanName,DateOfMeet,Сomment,CompanyId")] Note note)
         {
             if (ModelState.IsValid)
             {
