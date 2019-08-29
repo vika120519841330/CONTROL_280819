@@ -28,6 +28,7 @@ namespace CompanyNote.Models
             string humanName = (string)valueProvider.GetValue("HumanName").ConvertTo(typeof(string));
             DateTime dateOfMeet = (DateTime)valueProvider.GetValue("DateOfMeet").ConvertTo(typeof(DateTime));
             int cId = (int)valueProvider.GetValue("CompanyId.Id").ConvertTo(typeof(int));
+            string comment = (string)valueProvider.GetValue("Сomment").ConvertTo(typeof(string));
             Company companyId = this.FindCompanyById(cId);
            
             Note note = new Note()
@@ -35,7 +36,8 @@ namespace CompanyNote.Models
                 Email = email,
                 HumanName = humanName,
                 DateOfMeet = dateOfMeet,
-                CompanyId = companyId
+                CompanyId = companyId,
+                Сomment = comment
             };
             return note;
         }

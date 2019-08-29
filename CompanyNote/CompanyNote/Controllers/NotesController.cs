@@ -17,7 +17,10 @@ namespace CompanyNote.Controllers
         // GET: Notes
         public ActionResult Index()
         {
-            return View(db.Notes.ToList());
+            return View(db.Notes
+                .Include(_ => _.CompanyId)
+                .ToList()
+                );
         }
 
         // GET: Notes/Details/5
