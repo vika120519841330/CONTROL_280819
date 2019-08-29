@@ -42,6 +42,8 @@ namespace CompanyNote.Controllers
         {
             Company comp = db.Companies.Find(id);
             Note note = new Note { CompanyId = comp };
+            ViewBag.IDofCompany = comp.Id;
+            ViewBag.NameofCompany = comp.CompanyName;
             return View ("~/Views/Notes/CreateByIdOfCompany.cshtml", note);
         }
 

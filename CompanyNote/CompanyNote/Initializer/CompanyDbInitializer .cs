@@ -20,7 +20,7 @@ namespace CompanyNote.Initializer
                 context.Companies.RemoveRange(context.Companies);
                 this.Init(context);
             }
-            
+            //this.Init(context);
         }
 
         protected void Init(ApplicationDbContext context)

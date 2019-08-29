@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace CompanyNote.Models
 {
+[ModelBinder(typeof(NoteModelBinder))]
     public class Note
     {
         [Key]

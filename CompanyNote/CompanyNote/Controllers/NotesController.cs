@@ -39,30 +39,24 @@ namespace CompanyNote.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            SelectList companies = new SelectList(db.Companies, "Id", "CompanyName");
+            ViewBag.Companies = companies;
+            return View("Create");
         }
-
-        //[HttpPost]
-        //[Route("Notes/CreateByIdOfCompany")]
-        //public ActionResult CreateByIdOfCompany (Company company)
-        //{
-        //    Note note = new Note { CompanyId = company };
-        //    return View("CreateByIdOfCompany", "Notes", note);
-        //}
 
         // POST: Notes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Email,HumanName,DateOfMeet,Сomment,CompanyId")] Note note)
+        public ActionResult Create([Bind(Include = "Id,Email,HumanName,DateOfMeet,Сomment,CompanyId.Id,CompanyId.CompanyName")] Note note)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //
                 db.Notes.Add(note);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
+            //}
 
-            return View(note);
+            //return View(note);
         }
 
         // GET: Notes/Edit/5

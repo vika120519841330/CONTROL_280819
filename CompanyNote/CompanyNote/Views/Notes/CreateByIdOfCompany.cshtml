@@ -14,11 +14,30 @@
     @using (Html.BeginForm("Create", "Notes", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
-        <div class="form-horizontal">
-            <h4>Note</h4>
-            <hr />
-            <input type="hidden" value="@Model.CompanyId" name="CompanyId" />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <h4>Note</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div>
+            <input type="hidden" value=@ViewBag.IDofCompany name="CompanyId.Id" />
+        </div>
+        <div>
+            <input type="hidden" value=@ViewBag.NameofCompany name="CompanyId.CompanyName" />
+        </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.CompanyId.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.ValueFor(model => model.CompanyId.Id)
+                    @Html.ValidationMessageFor(model => model.CompanyId.Id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.CompanyId.CompanyName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.ValueFor(model => model.CompanyId.CompanyName)
+                    @Html.ValidationMessageFor(model => model.CompanyId.Id, "", new { @class = "text-danger" })
+                </div>
+            </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -58,10 +77,10 @@
                 </div>
             </div>
         </div>
-    }
+        }
 
-    <div>
-        @Html.ActionLink("НАЗАД", "AllCompanies", "Companies")
-    </div>
+        <div>
+            @Html.ActionLink("НАЗАД", "AllCompanies", "Companies")
+        </div>
 </body>
 </html>
