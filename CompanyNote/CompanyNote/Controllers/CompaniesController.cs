@@ -63,7 +63,7 @@ namespace CompanyNote.Controllers
             {
                 db.Companies.Add(company);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("AllCompanies");
             }
 
             return View(company);
@@ -93,7 +93,7 @@ namespace CompanyNote.Controllers
             {
                 db.Entry(company).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("AllCompanies");
             }
             return View(company);
         }
@@ -119,11 +119,32 @@ namespace CompanyNote.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Company company = db.Companies.Find(id);
+            List<Note> notesToDel = this.GetListOfNotesByCompany(company);
+            db.Notes.RemoveRange(notesToDel);
             db.Companies.Remove(company);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("AllCompanies");
         }
 
+        //вспомогательный метод для поиска взаимосвязанного с удаляемой компанией списка записей на прием
+        public List<Note> GetListOfNotesByCompany(Company comp)
+        {
+            var temp1 = comp.GetHashCode();
+            List<Note> notesListToDel = new List<Note>();
+            var AllNotes = db.Notes
+                            .Include(_ => _.CompanyId)
+                            .ToList()
+                            ;
+            foreach (var t in AllNotes)
+            {
+                var temp2 = t.CompanyId.GetHashCode();
+                if (temp1 == temp2)
+                {
+                    notesListToDel.Add(t);
+                }
+            }
+            return notesListToDel;
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
