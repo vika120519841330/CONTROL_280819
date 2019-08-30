@@ -40,10 +40,10 @@ namespace CompanyNote.Controllers
         // GET: Companies/GetCompanyById/5
         public ActionResult GetCompanyById(int? id)
         {
-            Company comp = db.Companies.Find(id);
-            Note note = new Note { CompanyId = comp };
-            ViewBag.IDofCompany = comp.Id;
-            ViewBag.NameofCompany = comp.CompanyName;
+            //Company comp = db.Companies.Find(id);
+            Note note = new Note { CompanyId = db.Companies.Find(id) };
+            ViewBag.IDofCompany = db.Companies.Find(id).Id;
+            ViewBag.NameofCompany = db.Companies.Find(id).CompanyName;
             return View ("~/Views/Notes/CreateByIdOfCompany.cshtml", note);
         }
 

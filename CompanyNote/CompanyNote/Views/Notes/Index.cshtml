@@ -15,6 +15,9 @@
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
+    <p>
+        @Html.ActionLink("Home", "Index", "Home")
+    </p>
     <table class="table">
         <tr>
             <th>
@@ -33,32 +36,33 @@
                 @Html.DisplayNameFor(model => model.CompanyId.CompanyName)
             </th>
         </tr>
-    
-    @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HumanName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfMeet)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Сomment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyId.CompanyName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
-    </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HumanName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfMeet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Сomment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyId.CompanyName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
     </table>
 </body>
 </html>
