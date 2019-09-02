@@ -214,3 +214,4 @@ D:\Program files\ASP.NET\ASP.NET_Control\CONTROL_280819\CompanyNote\CompanyNote\
 D:\Program files\ASP.NET\ASP.NET_Control\CONTROL_280819\CompanyNote\CompanyNote\obj\Debug\CompanyNote.csproj.CopyComplete
 D:\Program files\ASP.NET\ASP.NET_Control\CONTROL_280819\CompanyNote\CompanyNote\obj\Debug\CompanyNote.dll
 D:\Program files\ASP.NET\ASP.NET_Control\CONTROL_280819\CompanyNote\CompanyNote\obj\Debug\CompanyNote.pdb
+D:\Program files\ASP.NET\ASP.NET_Control\CONTROL_280819\CompanyNote\CompanyNote\obj\Debug\CompanyNote.Migrations.MigrateDBv1.resources

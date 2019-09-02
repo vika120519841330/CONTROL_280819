@@ -18,6 +18,11 @@ namespace CompanyNote.Models
         public string Сomment { get; set; }
 
         //внешний ключ для связи с сущностью Company
-        public Company CompanyId { get; set; }
+        [Required]
+        public int CompanyId { get; set; }
+
+        //ссылка на другую сущность Company
+       
+        public Company Company { get; set; }
     }
 }

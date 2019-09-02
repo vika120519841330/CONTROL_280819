@@ -18,7 +18,7 @@ namespace CompanyNote.Controllers
         public ActionResult Index()
         {
             return View(db.Notes
-                .Include(_ => _.CompanyId)
+                .Include(_ => _.Company)
                 .ToList()
                 );
         }
@@ -50,7 +50,7 @@ namespace CompanyNote.Controllers
         // POST: Notes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Email,HumanName,DateOfMeet,Сomment,CompanyId.Id,CompanyId.CompanyName")] Note note)
+        public ActionResult Create([Bind(Include = "Id,Email,HumanName,DateOfMeet,Сomment,CompanyId,Company.Id,Company.CompanyName")] Note note)
         {
             //if (ModelState.IsValid)
             //
